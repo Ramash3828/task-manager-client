@@ -10,7 +10,7 @@ const Header = () => {
         >
             <div className="container">
                 <Link className=" logo" to="/">
-                    TASK MANAGER
+                    TASK TOOLS
                 </Link>
                 <button
                     className="navbar-toggler"
