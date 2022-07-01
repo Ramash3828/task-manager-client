@@ -59,9 +59,9 @@ const Header = () => {
                             <NavLink
                                 className="nav-link "
                                 aria-current="page"
-                                to="/calender"
+                                to="/Calendar"
                             >
-                                Calender
+                                Calendar
                             </NavLink>
                         </li>
                     </ul>
