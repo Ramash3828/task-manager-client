@@ -1,6 +1,6 @@
 import "./App.css";
 import Home from "./Components/Home/Home";
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import CompleteTask from "./Components/CompleteTask.js/CompleteTask";
 import ToDos from "./Components/ToDos/ToDos";
@@ -9,7 +9,6 @@ import Calendar from "./Components/Calendar/Calendar";
 import Footer from "./Components/Footer";
 
 function App() {
-    // const { id } = useParams();
     return (
         <div className="App">
             <Header />

@@ -1,22 +1,13 @@
-import { format } from "date-fns";
 import React, { useState } from "react";
-import { useQuery } from "react-query";
 import SingleToDos from "../ToDos/SingleToDos";
 import { DayPicker } from "react-day-picker";
+import useTask from "../../hooks/useTask";
+import useDatePicker from "../../hooks/useDatePicker";
 
 const Home = () => {
-    const [selected, setSelected] = useState(new Date());
     const [task, setTask] = useState("");
-    // const [toDos, setToDos] = useState([]);
-    const formatedDate = format(selected, "PP");
-
-    const footer = (
-        <p className="text-info">Daily Task {format(selected, "PP")}.</p>
-    );
-
-    const { data, refetch, isLoading } = useQuery("task", () =>
-        fetch(`http://localhost:5000/task`).then((res) => res.json())
-    );
+    const { formatedDate, footer, selected, setSelected } = useDatePicker();
+    const { data, refetch, isLoading } = useTask();
 
     if (isLoading) {
         return <div>Loading...</div>;

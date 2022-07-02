@@ -6,13 +6,12 @@ import { DayPicker } from "react-day-picker";
 import { useForm } from "react-hook-form";
 
 const UpdateToDo = () => {
-    const [taskValue, setTaskValue] = useState("");
     const { id } = useParams();
     const [selected, setSelected] = useState(new Date());
     const formatedDate = format(selected, "PP");
     const navigate = useNavigate();
 
-    const { data, refetch } = useQuery("task", () =>
+    const { data } = useQuery("task", () =>
         fetch(`http://localhost:5000/task`).then((res) => res.json())
     );
 
@@ -23,7 +22,6 @@ const UpdateToDo = () => {
     });
 
     const onSubmit = (data) => {
-        setTaskValue(toDosObj.task);
         fetch(`http://localhost:5000/edit/${id}`, {
             method: "PUT",
             body: JSON.stringify({
