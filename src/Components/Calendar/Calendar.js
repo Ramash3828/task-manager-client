@@ -5,7 +5,7 @@ import "react-day-picker/dist/style.css";
 
 const Calendar = () => {
     const [selected, setSelected] = useState(new Date());
-    console.log(selected);
+
     const footer = (
         <p className="text-info">Daily Task {format(selected, "PP")}.</p>
     );
