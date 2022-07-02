@@ -6,6 +6,7 @@ import CompleteTask from "./Components/CompleteTask.js/CompleteTask";
 import ToDos from "./Components/ToDos/ToDos";
 import UpdateToDo from "./Components/ToDos/UpdateToDo";
 import Calendar from "./Components/Calendar/Calendar";
+import Footer from "./Components/Footer";
 
 function App() {
     // const { id } = useParams();
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/Calendar" element={<Calendar />} />
                 <Route path="/to-dos" element={<ToDos />} />
             </Routes>
+            <Footer />
         </div>
     );
 }
