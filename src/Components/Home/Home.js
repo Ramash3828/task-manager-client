@@ -15,7 +15,7 @@ const Home = () => {
 
     const onHandelChange = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:5000/task`, {
+        fetch(`https://assignment-manage.herokuapp.com/task`, {
             method: "POST",
             body: JSON.stringify({
                 task: task,

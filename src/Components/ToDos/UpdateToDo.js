@@ -1,18 +1,19 @@
-import { format } from "date-fns";
-import React, { useState } from "react";
+import React from "react";
 import { useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import { DayPicker } from "react-day-picker";
 import { useForm } from "react-hook-form";
+import useDatePicker from "../../hooks/useDatePicker";
 
 const UpdateToDo = () => {
     const { id } = useParams();
-    const [selected, setSelected] = useState(new Date());
-    const formatedDate = format(selected, "PP");
+    const { formatedDate, selected, setSelected } = useDatePicker();
     const navigate = useNavigate();
 
     const { data } = useQuery("task", () =>
-        fetch(`http://localhost:5000/task`).then((res) => res.json())
+        fetch(`https://assignment-manage.herokuapp.com/task`).then((res) =>
+            res.json()
+        )
     );
 
     const toDosObj = data?.find((toDo) => toDo?._id === id);
@@ -22,7 +23,7 @@ const UpdateToDo = () => {
     });
 
     const onSubmit = (data) => {
-        fetch(`http://localhost:5000/edit/${id}`, {
+        fetch(`https://assignment-manage.herokuapp.com/edit/${id}`, {
             method: "PUT",
             body: JSON.stringify({
                 task: data?.task,
